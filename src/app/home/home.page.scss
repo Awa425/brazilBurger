@@ -25,3 +25,11 @@
 #container a {
   text-decoration: none;
 }
+
+.paralax-image{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 25vh;
+  background-image: url("../../assets/burgerHeade.jpg");
+}

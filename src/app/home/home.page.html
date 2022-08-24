@@ -1,20 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Brazil-Burger
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content padding appParalaxHeader [scrollEvents]="true">
+  <div class="paralax-image" ></div>
+  <ion-card class="main" *ngFor="let produit of catalogue; let i=index" style="background-color: rgb(241, 239, 239);">
+    <p *ngIf="i==1">Burgers</p>
+    <p *ngIf="i==2">Menus</p>
+    <div class="car menu-item" *ngFor="let cat of produit">
+      <a  class="glightbox"><img [src]="'data:image/jpg;base64,' + cat.image" alt="Card image cap" class="menu-img img-fluid" alt=""></a>
+      <h4 class="text-center">{{ cat.nom }}</h4>
+      <p class="ingredients text-center">Lorem, deren</p>
+      <p class="price text-center" style="color: rgba(206, 18, 18, 0.8); font-weight:bold" [innerText]="cat.prix+' FCFA' "></p>
+      <div class="d-flex" style="justify-content: space-between; font-weight: bold">
+          <span class="btn btn-warning" >Voir Detail</span>
+          <button class="btn btn-outline-success" *ngIf="cat.type=='BURGER'" >+</button>
+      </div><br>
+    </div>
+  </ion-card> 
 </ion-content>
+<ion-footer>
+  <p>pied de page</p>
+</ion-footer>
