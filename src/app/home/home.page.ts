@@ -9,13 +9,14 @@ import { MyserviceService } from '../myservice.service';
 })
 export class HomePage {
   catalogue: any[];
-  // myImagePath = '../../assets/burgerHeade.jpg'
-  constructor(private serviceCatalogue: MyserviceService, private http: HttpClient) {
+  
+  constructor(private serviceCatalogue: MyserviceService, private http: HttpClient) {}
+  
+  ngOnInit(){
     this.serviceCatalogue.getCatalogue().subscribe(
       data => {
         this.catalogue = data;
       }
     )
   }
-
 }

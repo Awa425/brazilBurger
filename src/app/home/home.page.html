@@ -1,13 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Brazil-Burger
-    </ion-title>
+<ion-header class="img-parallax" parallax>
+  <ion-toolbar color="info">
+    <ion-title> Brazzil-Burger </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding appParalaxHeader [scrollEvents]="true">
-  <div class="paralax-image" ></div>
+<ion-content padding >
   <ion-card class="main" *ngFor="let produit of catalogue; let i=index" style="background-color: rgb(241, 239, 239);">
     <p *ngIf="i==1">Burgers</p>
     <p *ngIf="i==2">Menus</p>
@@ -22,6 +19,7 @@
       </div><br>
     </div>
   </ion-card> 
+  
 </ion-content>
 <ion-footer>
   <p>pied de page</p>

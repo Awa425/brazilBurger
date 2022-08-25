@@ -26,10 +26,14 @@
   text-decoration: none;
 }
 
-.paralax-image{
-  background-repeat: no-repeat;
+
+.img-parallax{
+  // background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  // background-size: cover;
   height: 25vh;
-  background-image: url("../../assets/burgerHeade.jpg");
+  background-image: url("../../assets/header.jpeg"); 
+}
+ion-toolbar{
+  background-color: rgb(244, 220, 176);
 }
