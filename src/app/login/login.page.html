@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="login()">
+    <div>Email: <input type="text" ngModel formControlName="username"  placeholder="Votre login"> </div>
+    <div>Password: <input type="text" ngModel formControlName="password"  placeholder="Votre Password"> </div>
+    <button>Connexion</button>
+  </form>
+</ion-content>

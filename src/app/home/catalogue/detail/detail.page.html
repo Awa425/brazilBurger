@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" routerLink="/home">Back</ion-icon>
+    <ion-title>DETAIL DU PRODUIT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding><br>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Burger</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div style="height: 25vh; display: flex; justify-content: center; " >
+        <img [src]="'data:image/jpg;base64,' + produit?.image" alt="Card image cap" class="menu-img img-fluid" style="height: 25vh">
+      </div> 
+    </ion-card-content>
+    <p><strong>Nom du produit : </strong>{{produit?.nom}}</p>
+    <p><strong>Prix : </strong>{{produit?.prix}}</p>
+    <p><strong>Description : </strong>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus praesentium numquam sint laboriosam corrupti </p>
+  </ion-card>
+  
+
+</ion-content>

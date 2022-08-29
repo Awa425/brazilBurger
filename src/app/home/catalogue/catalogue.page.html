@@ -1,0 +1,59 @@
+<ion-header class="img-parallax" parallax>
+  <ion-toolbar color="info">
+    <ion-title> Brazzil-Burger </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-segment [(ngModel)]="segment">
+    <ion-segment-button value="card"> <ion-icon name="card-outline"></ion-icon> </ion-segment-button>
+    <ion-segment-button value="list"> <ion-icon name="list-outline"></ion-icon> </ion-segment-button>
+  </ion-segment>
+  
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="''">
+      <ion-card class="main" *ngFor="let produit of catalogue; let i=index" style="background-color: rgb(241, 239, 239);">
+        <div class="car menu-item" *ngFor="let cat of produit">
+          <a  class="glightbox"><img [src]="'data:image/jpg;base64,' + cat.image" alt="Card image cap" class="menu-img img-fluid" ></a>
+          <h4 class="text-center">{{ cat.nom }}</h4>
+          <p class="ingredients text-center">Lorem, deren</p>
+          <p class="price text-center" style="color: rgba(206, 18, 18, 0.8); font-weight:bold" [innerText]="cat.prix+' FCFA' "></p>
+          <div class="d-flex" style="justify-content: space-between; font-weight: bold">
+              <ion-button class="btn btn-warming" [routerLink]="['/detail', cat.id]">Voir Detail</ion-button>
+              <button class="btn btn-outline-success" *ngIf="cat.type=='BURGER'" ><ion-icon name="cart-outline"></ion-icon></button>
+          </div><br>
+        </div>
+      </ion-card> 
+    </div>
+
+    <div *ngSwitchCase="'card'">
+      <ion-card class="main" *ngFor="let produit of catalogue; let i=index" style="background-color: rgb(241, 239, 239);">
+        <!-- <p *ngIf="i==1">Burgers</p>
+        <p *ngIf="i==2">Menus</p> -->
+        <div class="car menu-item" *ngFor="let cat of produit">
+          <a  class="glightbox"><img [src]="'data:image/jpg;base64,' + cat.image" alt="Card image cap" class="menu-img img-fluid" ></a>
+          <h4 class="text-center">{{ cat.nom }}</h4>
+          <p class="ingredients text-center">Lorem, deren</p>
+          <p class="price text-center" style="color: rgba(206, 18, 18, 0.8); font-weight:bold" [innerText]="cat.prix+' FCFA' "></p>
+          <div class="d-flex" style="justify-content: space-between; font-weight: bold">
+            <ion-button class="btn btn-warming" [routerLink]="['/detail', cat.id]">Voir Detail</ion-button>
+              <button class="btn btn-outline-success" *ngIf="cat.type=='BURGER'" ><ion-icon name="cart-outline"></ion-icon></button>
+          </div><br>
+        </div>
+      </ion-card> 
+    </div>
+
+    <div *ngSwitchCase="'list'">      
+      <div *ngFor="let produit of catalogue;">
+        <ion-item *ngFor="let cat of produit">
+          <ion-thumbnail slot="start">
+            <img [src]="'data:image/jpg;base64,' + cat.image" alt="image">
+          </ion-thumbnail>
+          <ion-label>{{ cat.nom }}</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
