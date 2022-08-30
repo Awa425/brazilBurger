@@ -18,7 +18,7 @@ export class DetailPage implements OnInit {
         this.myService.getOne("produits",id).subscribe(
           donnees=>{
             this.produit=donnees;
-            console.log(donnees);
+            // console.log(donnees);
             
           }
         )

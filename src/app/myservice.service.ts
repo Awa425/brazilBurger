@@ -16,6 +16,12 @@ export class MyserviceService {
   getOne(type: string,id: number):Observable<any>{
     return this.http.get<any>('http://127.0.0.1:8000/api/'+type+'/'+id);
   }
+  getUsers(type: string):Observable<any>{
+    return this.http.get<any>('http://127.0.0.1:8000/api/'+type);
+  }
+  getLivraisonsByLivreur(id: number):Observable<any>{
+    return this.http.get<any>('http://127.0.0.1:8000/api/livreurs/'+id+'/livraisons');
+  }
 
   connexion(body: any, url: string): Observable<any> {
     return this.http.post<any>(url, body)

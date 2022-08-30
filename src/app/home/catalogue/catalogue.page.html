@@ -6,28 +6,30 @@
 
 <ion-content padding >
   <ion-segment [(ngModel)]="segment">
-    <ion-segment-button value="card"> <ion-icon name="card-outline"></ion-icon> </ion-segment-button>
+    <ion-segment-button value="card"> <ion-icon name="apps-outline"></ion-icon> </ion-segment-button>
     <ion-segment-button value="list"> <ion-icon name="list-outline"></ion-icon> </ion-segment-button>
   </ion-segment>
   
-  <div [ngSwitch]="segment">
+  <div [ngSwitch]="segment" >
     <div *ngSwitchCase="''">
-      <ion-card class="main" *ngFor="let produit of catalogue; let i=index" style="background-color: rgb(241, 239, 239);">
+      <ion-card class="main" *ngFor="let produit of catalogue; let i=index" >
         <div class="car menu-item" *ngFor="let cat of produit">
-          <a  class="glightbox"><img [src]="'data:image/jpg;base64,' + cat.image" alt="Card image cap" class="menu-img img-fluid" ></a>
-          <h4 class="text-center">{{ cat.nom }}</h4>
-          <p class="ingredients text-center">Lorem, deren</p>
-          <p class="price text-center" style="color: rgba(206, 18, 18, 0.8); font-weight:bold" [innerText]="cat.prix+' FCFA' "></p>
-          <div class="d-flex" style="justify-content: space-between; font-weight: bold">
-              <ion-button class="btn btn-warming" [routerLink]="['/detail', cat.id]">Voir Detail</ion-button>
-              <button class="btn btn-outline-success" *ngIf="cat.type=='BURGER'" ><ion-icon name="cart-outline"></ion-icon></button>
-          </div><br>
+          <div  style=" margin-bottom: 1.5em; box-shadow: 0 0 10px;">
+            <a  class="glightbox"><img [src]="'data:image/jpg;base64,' + cat.image" alt="Card image cap" class="menu-img img-fluid" ></a>
+            <h4 class="text-center">{{ cat.nom }}</h4>
+            <p class="ingredients text-center">Lorem, deren</p>
+            <p class="price text-center" style="color: rgba(206, 18, 18, 0.8); font-weight:bold" [innerText]="cat.prix+' FCFA' "></p>
+            <div class="d-flex" style="justify-content: space-around; font-weight: bold;">
+              <ion-button color="warning" size="small" shape="round" fill="outline" class=" bouton" [routerLink]="['/detail', cat.id]"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+              <ion-button color="warning" size="small" shape="round" fill="outline" class=" bouton" *ngIf="cat.type=='BURGER'" ><ion-icon name="cart-outline"></ion-icon></ion-button>
+            </div>
+          </div>
         </div>
       </ion-card> 
     </div>
 
     <div *ngSwitchCase="'card'">
-      <ion-card class="main" *ngFor="let produit of catalogue; let i=index" style="background-color: rgb(241, 239, 239);">
+      <ion-card class="main" *ngFor="let produit of catalogue; let i=index" style=" box-shadow: 0 0 10px;">
         <!-- <p *ngIf="i==1">Burgers</p>
         <p *ngIf="i==2">Menus</p> -->
         <div class="car menu-item" *ngFor="let cat of produit">
@@ -35,24 +37,31 @@
           <h4 class="text-center">{{ cat.nom }}</h4>
           <p class="ingredients text-center">Lorem, deren</p>
           <p class="price text-center" style="color: rgba(206, 18, 18, 0.8); font-weight:bold" [innerText]="cat.prix+' FCFA' "></p>
-          <div class="d-flex" style="justify-content: space-between; font-weight: bold">
-            <ion-button class="btn btn-warming" [routerLink]="['/detail', cat.id]">Voir Detail</ion-button>
-              <button class="btn btn-outline-success" *ngIf="cat.type=='BURGER'" ><ion-icon name="cart-outline"></ion-icon></button>
+          <div class="d-flex" style="justify-content: space-around; font-weight: bold">
+            <ion-button color="warning" size="small" shape="round" fill="outline" class="bouton" [routerLink]="['/detail', cat.id]"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+              <ion-button color="warning" size="small" shape="round" fill="outline" class=" bouton" *ngIf="cat.type=='BURGER'" ><ion-icon name="cart-outline"></ion-icon></ion-button>
           </div><br>
         </div>
       </ion-card> 
     </div>
 
-    <div *ngSwitchCase="'list'">      
-      <div *ngFor="let produit of catalogue;">
-        <ion-item *ngFor="let cat of produit">
+    <div *ngFor="let produit of catalogue">
+      <ion-item-sliding *ngFor="let cat of produit">
+
+        <ion-item>
           <ion-thumbnail slot="start">
             <img [src]="'data:image/jpg;base64,' + cat.image" alt="image">
           </ion-thumbnail>
-          <ion-label>{{ cat.nom }}</ion-label>
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-item>
-      </div>
+         <ion-label> {{cat.nom}}</ion-label>
+         <ion-icon name="chevron-forward-outline"></ion-icon>
+       </ion-item>
+   
+       <ion-item-options side="end">
+         <ion-item-option color="warning" expandable>
+           <a [routerLink]="['/detail', cat.id]">more</a>
+         </ion-item-option>
+       </ion-item-options>
+      </ion-item-sliding>
     </div>
   </div>
 </ion-content>

@@ -5,9 +5,10 @@ import { LivraisonsPage } from './livraisons.page';
 
 const routes: Routes = [
   {
-    path: 'livraisons',
+    path: 'livraisons/:id',
     component: LivraisonsPage
-  }
+  },
+ 
 ];
 
 @NgModule({
