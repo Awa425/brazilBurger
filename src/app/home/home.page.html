@@ -22,10 +22,10 @@
       <div class="align-items-center">
         <form [formGroup]="myForm" (ngSubmit)="login()">
           <div class="form-group d-flex m-3">
-            <input class="form-control" type="text" ngModel formControlName="username"  placeholder="Votre login"> 
+            <input class="form-control" type="text" ngModel formControlName="username" value="livreur1@example.com"  placeholder="Votre login"> 
           </div>
           <div class="form-group  d-flex  m-3">
-            <input class="form-control" type="text" ngModel formControlName="password"  placeholder="Votre Password"> 
+            <input class="form-control" type="password" ngModel formControlName="password"  placeholder="Votre Password"> 
           </div> <br>
           <div class="text-center">
             <button class="btn btn-warning" expand="block">Connexion</button>

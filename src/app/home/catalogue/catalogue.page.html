@@ -1,5 +1,8 @@
-<ion-header class="img-parallax" parallax>
+<ion-header class="img-parallax" parallax translucent>
   <ion-toolbar color="info">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title> Brazzil-Burger </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -29,20 +32,20 @@
     </div>
 
     <div *ngSwitchCase="'card'">
-      <ion-card class="main" *ngFor="let produit of catalogue; let i=index" style=" box-shadow: 0 0 10px;">
-        <!-- <p *ngIf="i==1">Burgers</p>
-        <p *ngIf="i==2">Menus</p> -->
+      <ion-card class="main" *ngFor="let produit of catalogue; let i=index" >
         <div class="car menu-item" *ngFor="let cat of produit">
-          <a  class="glightbox"><img [src]="'data:image/jpg;base64,' + cat.image" alt="Card image cap" class="menu-img img-fluid" ></a>
-          <h4 class="text-center">{{ cat.nom }}</h4>
-          <p class="ingredients text-center">Lorem, deren</p>
-          <p class="price text-center" style="color: rgba(206, 18, 18, 0.8); font-weight:bold" [innerText]="cat.prix+' FCFA' "></p>
-          <div class="d-flex" style="justify-content: space-around; font-weight: bold">
-            <ion-button color="warning" size="small" shape="round" fill="outline" class="bouton" [routerLink]="['/detail', cat.id]"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+          <div  style=" margin-bottom: 1.5em; box-shadow: 0 0 10px;">
+            <a  class="glightbox"><img [src]="'data:image/jpg;base64,' + cat.image" alt="Card image cap" class="menu-img img-fluid" ></a>
+            <h4 class="text-center">{{ cat.nom }}</h4>
+            <p class="ingredients text-center">Lorem, deren</p>
+            <p class="price text-center" style="color: rgba(206, 18, 18, 0.8); font-weight:bold" [innerText]="cat.prix+' FCFA' "></p>
+            <div class="d-flex" style="justify-content: space-around; font-weight: bold;">
+              <ion-button color="warning" size="small" shape="round" fill="outline" class=" bouton" [routerLink]="['/detail', cat.id]"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
               <ion-button color="warning" size="small" shape="round" fill="outline" class=" bouton" *ngIf="cat.type=='BURGER'" ><ion-icon name="cart-outline"></ion-icon></ion-button>
-          </div><br>
+            </div>
+          </div>
         </div>
-      </ion-card> 
+      </ion-card>
     </div>
 
     <div *ngFor="let produit of catalogue">

@@ -20,7 +20,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     HttpClientModule,
     IonicHeaderParallaxModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

@@ -29,7 +29,7 @@ export class HomePage{
       result => {
         if(result['token']){
           localStorage.setItem('token', result['token']);
-          this.user=this.getDecodedAccessToken(result['token'])
+          this.user=this.myService.getDecodedAccessToken(result['token'])
           const username = this.user.username
           // console.log(this.user.username);
           
@@ -42,6 +42,7 @@ export class HomePage{
                 for (let i = 0; i < res.length; i++) {
                   if (this.user.username == res[i].email) {
                     this.id = res[i].id 
+                    localStorage.setItem('id', ''+this.id);
                     // console.log(res[i]);
                     this.router.navigateByUrl('/home/livraisons/'+this.id)
 
@@ -50,19 +51,15 @@ export class HomePage{
               }
             )
             
-            // this.router.navigate(['/home/livraisons/',this.id])
-          }          
+          }    
+          
+          
+
         }
         else{this.router.navigateByUrl('/login')}
       }
     )
   }
-  getDecodedAccessToken(token: string): any {
-    try {
-      return jwt_decode(token);
-    } catch(Error) {
-      return null;
-    }
-  }
+
 
 }
